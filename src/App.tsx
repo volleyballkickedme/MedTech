@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Processing from "./pages/Process";
 import Result from "./pages/Result";
-
+import Test from "./components/Test";
 const App: React.FC = () => {
   return (
     <Router>
@@ -15,6 +15,7 @@ const App: React.FC = () => {
     </Router>
   );
 };
+
 
 export default App;
 
