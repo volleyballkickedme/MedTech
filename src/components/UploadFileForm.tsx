@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import FilePreview from "./FilePreview";
-import InputToggle from "./InputToggle";
 
 interface UploadFileFormProps {
   onUpload: (file: File | null, text: string) => void;
@@ -20,15 +19,15 @@ const UploadFileForm: React.FC<UploadFileFormProps> = ({ onUpload }) => {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white shadow-lg rounded-xl">
+    <div className="p-6 w-full max-w-lg mx-auto bg-white shadow-lg rounded-xl min-h-[400px] flex flex-col">
       <h2 className="text-xl font-semibold text-gray-700 mb-4">Upload an Image</h2>
-      {/* Input Toggle */}
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* File Upload */}
         <input
           type="file"
           accept="image/*"
-          className="block w-full border border-gray-300 rounded-md p-2"
+          className="block w-full border border-gray-300 rounded-md p-2 h-[140px]"
           onChange={handleFileChange}
         />
 
@@ -45,4 +44,5 @@ const UploadFileForm: React.FC<UploadFileFormProps> = ({ onUpload }) => {
 };
 
 export default UploadFileForm;
+
 

@@ -13,12 +13,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="bg-red-500 flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center h-screen">
       <InputToggle isTextInput={isTextInput} setIsTextInput={setIsTextInput}/>
       {isTextInput ? (
-        <UploadTextForm onUpload={handleUpload} type="text" />
+        <UploadTextForm onUpload={handleUpload} />
       ) : (
-        <UploadFileForm onUpload={handleUpload} type="file" />
+        <UploadFileForm onUpload={handleUpload} />
       )}
     </div>
   );
