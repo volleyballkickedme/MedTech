@@ -6,8 +6,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain.schema import Document
-import process_orpha_labels.process_orpha_labels as orpha_labels
-import model.prompt.prompt as prompt
+import app.process_orpha_labels.process_orpha_labels as orpha_labels
+import app.model.prompt.prompt as prompt
 
 class mistral:
     def __init__(self):

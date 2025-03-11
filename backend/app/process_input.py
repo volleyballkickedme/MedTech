@@ -1,6 +1,6 @@
-import process_orpha_labels.process_orpha_labels as orpha_labels
+import app.process_orpha_labels.process_orpha_labels as orpha_labels
 from thefuzz import process
-import model.mistral as mistral
+import app.model.mistral as mistral
 
 def process_diseases(model, input):
     diseases = []

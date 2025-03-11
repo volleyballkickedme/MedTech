@@ -1,5 +1,5 @@
 import json
-import constants
+import app.constants as constants
 
 class orpha_labels:
     def __init__(self):

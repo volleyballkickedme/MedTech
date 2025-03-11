@@ -19,3 +19,5 @@ pronto
 FastHPOCR
 together
 thefuzz
+fastapi
+uvicorn
