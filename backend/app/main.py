@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.process_input import process_diseases
 import app.model.mistral as mistral
 from fastapi import FastAPI, File, UploadFile
