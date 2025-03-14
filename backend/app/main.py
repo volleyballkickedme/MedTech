@@ -1,9 +1,18 @@
 from fastapi import FastAPI
 from app.process_input import process_diseases
 import app.model.mistral as mistral
+from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 model = mistral.mistral()
 
 @app.get("/", summary="Health Check")
