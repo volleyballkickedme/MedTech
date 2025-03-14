@@ -12,7 +12,7 @@ import app.model.prompt.prompt as prompt
 class mistral:
     def __init__(self):
         pe_prompt = prompt.prompt.get_prompt()
-        self.model = ChatOllama(model="mistral-pe")
+        self.model = ChatOllama(model="mistral")
         self.prompt: StringPromptTemplate = pe_prompt
         self.chain = pe_prompt | self.model | StrOutputParser()
 

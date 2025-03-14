@@ -29,6 +29,7 @@ def query_llm(input: TextInput):
     diseases = process_diseases(model, input.text)
     return {"response": diseases}
 
+@app.post("/processFile", summary="Query LLM - file input")
 async def query_llm_file(file: UploadFile = File(...)):
     """Process an uploaded file and extract disease names."""
     contents = await file.read()
