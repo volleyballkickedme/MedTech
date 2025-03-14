@@ -9,6 +9,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   const handleUpload = (file: File | null, text: string) => {
+    // fetch from backend
     navigate("/processing");
   };
 
