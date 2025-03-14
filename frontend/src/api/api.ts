@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const processText = async (text: string) => {
     try {
@@ -13,9 +13,13 @@ export const processText = async (text: string) => {
         if(!response.ok) {
             throw new Error('HTTP request failed for text upload');
         }
-
         const data = await response.json();
-        return data;
+        
+        const diseaseNames = data.response.map((item: { name: string }) => 
+            item.name.replace(/[*\s]+/, "").trim()  // Remove asterisks & trim spaces
+          );
+      
+        return diseaseNames;
     } catch (error) {
         console.error('Error processing text:', error);
         return { processed_text: 'Error processing text' };
@@ -35,9 +39,13 @@ export const processFile = async(file: File) => {
         if (!response.ok) {
             throw new Error('HTTP request failed for file upload');
         }
-
         const data = await response.json();
-        return data;
+
+        const diseaseNames = data.response.map((item: { name: string }) => 
+            item.name.replace(/[*\s]+/, "").trim()  // Remove asterisks & trim spaces
+        );
+      
+        return diseaseNames;
     } catch (error) {
         console.error('Error processing file:', error);
         return { processed_text: 'Error processing file' };
