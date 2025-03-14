@@ -2,7 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const processText = async (text: string) => {
     try {
-        const response = await fetch(`API_BASE_URL/processText`, {
+        const response = await fetch(`${API_BASE_URL}/processText`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
