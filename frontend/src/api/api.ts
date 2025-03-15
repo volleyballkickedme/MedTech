@@ -2,6 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const processText = async (text: string) => {
     try {
+        console.log("Calling backend API with text");
         const response = await fetch(`${API_BASE_URL}/processText`, {
             method: 'POST',
             headers: {
@@ -17,7 +18,7 @@ export const processText = async (text: string) => {
         
         const diseaseNames = data.response.map((item: { name: string }) => 
             item.name.replace(/[*\s]+/, "").trim()  // Remove asterisks & trim spaces
-          );
+          ).filter((item: string) => item.length > 0);
       
         return diseaseNames;
     } catch (error) {
@@ -28,6 +29,8 @@ export const processText = async (text: string) => {
 
 export const processFile = async(file: File) => {
     try {
+        console.log("Calling backend API with image");
+
         const formData = new FormData();
         formData.append('file', file);
 
