@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.process_input import process_diseases
+from app.process_image.process_image import process_image
 import app.model.mistral as mistral
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -29,8 +30,10 @@ def query_llm(input: TextInput):
     diseases = process_diseases(model, input.text)
     return {"response": diseases}
 
+@app.post("/processImage", summary="Query LLM - image input")
 async def query_llm_file(file: UploadFile = File(...)):
     """Process an uploaded file and extract disease names."""
     contents = await file.read()
-    diseases = process_diseases(model, contents.decode("utf-8"))
+    text = process_image(contents)
+    diseases = process_diseases(model, text)
     return {"response": diseases}
