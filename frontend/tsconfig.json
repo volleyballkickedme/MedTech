@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",  // ✅ Enables JSX in React (for TypeScript)
+    "target": "ES2020",  // ✅ Ensures compatibility with import.meta.env
+    "lib": ["DOM", "ES2020"], // ✅ Adds necessary JS features and DOM API
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "module": "ESNext",  // ✅ Required for ES Modules
+    "strict": true, // ✅ Enables strict type checking (recommended)
+    "resolveJsonModule": true // ✅ Allows importing JSON files
   }
 }
